@@ -1,79 +1,208 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro'
+import { SITE_TITLE } from '../consts'
 ---
 
 <header>
-	<nav>
-		<h2>
-			<a href="/">{SITE_TITLE}</a>
-		</h2>
+  <nav>
+    <h2>
+      <a href='/'>{SITE_TITLE}</a>
+    </h2>
 
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/skills">Skills</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-		</div>
-		
-		<div class="social-links">
-			<a href="https://github.com/withastro/astro" target="_blank">
-				<span class="sr-only">Go to Astro's GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path></svg
-				>
-			</a>
-		</div>
-	</nav>
+    <div id='menu-content'>
+      <button id='close-menu-button' aria-label='メニューを閉じる'>
+        <svg viewBox='0 0 24 24' width='24' height='24'>
+          <path
+            d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z'
+            fill='currentColor'
+          >
+          </path>
+        </svg>
+      </button>
+
+      <ul class='internal-links'>
+        <li>
+          <HeaderLink href='/'>Home</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href='/about'>About</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href='/skills'>Skills</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href='/blog'>Blog</HeaderLink>
+        </li>
+      </ul>
+
+      <div class='social-link'>
+        <a href='https://github.com/withastro/astro' target='_blank' rel='noopener'>
+          <svg viewBox='0 0 16 16' aria-hidden='true' width='32' height='32'>
+            <path
+              fill='currentColor'
+              d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'
+            >
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div id='menu-button-container'>
+      <button id='menu-button' aria-label='メニューを開く'>
+        MENU
+        <svg viewBox='0 0 8 6' class='menu-icon'>
+          <path
+            d='M1.75 1.75 4 4.25l2.25-2.5'
+            fill='none'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          >
+          </path>
+        </svg>
+      </button>
+    </div>
+  </nav>
 </header>
 
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
+  header {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    padding: 0 1em;
+  }
 
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
+  nav h2,
+  nav a {
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0;
+  }
 
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+  .internal-links {
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
+  /* justify-content: space-between で少し中央からズレるのを、中央に持ってくる */
+  nav {
+    position: relative;
+  }
 
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
+  .internal-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* ここまで */
 
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
+  .social-link {
+    display: block;
+    height: 32px;
+  }
 
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  #menu-button-container {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    nav {
+      padding: 1rem;
+    }
+
+    #menu-button-container {
+      display: block;
+    }
+
+    #menu-button {
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg-color);
+      color: var(--text-color);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    #menu-button,
+    #menu-content.open {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-icon {
+      margin-left: 0.75rem;
+      height: auto;
+      width: 0.5rem;
+      stroke: var(--text-color);
+    }
+
+    #menu-content {
+      display: block;
+      /* opacity: 0;
+      visibility: hidden; */
+      position: fixed;
+      top: 4.5rem;
+      left: 1rem;
+      right: 1rem;
+      background-color: var(--card-bg-color);
+      border-radius: 2rem;
+      padding: 3.5rem 1rem 2rem;
+      z-index: 1000;
+    }
+
+    #menu-content.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #close-menu-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .internal-links {
+      /* justify-content: space-between で少し中央からズレるのを、中央に持ってくる（解除） */
+      position: static;
+      transform: none;
+      /* ここまで */
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .social-link {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @media not (max-width: 720px) {
+    #close-menu-button {
+      display: none;
+    }
+  }
 </style>
