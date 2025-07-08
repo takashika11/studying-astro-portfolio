@@ -64,6 +64,8 @@ import { SITE_TITLE } from '../consts'
       </button>
     </div>
   </nav>
+
+  <div id='overlay'></div>
 </header>
 
 <style>
@@ -157,8 +159,8 @@ import { SITE_TITLE } from '../consts'
 
     #menu-content {
       display: block;
-      /* opacity: 0;
-      visibility: hidden; */
+      opacity: 0;
+      visibility: hidden;
       position: fixed;
       top: 4.5rem;
       left: 1rem;
@@ -167,11 +169,19 @@ import { SITE_TITLE } from '../consts'
       border-radius: 2rem;
       padding: 3.5rem 1rem 2rem;
       z-index: 1000;
+      /* アニメーション */
+      transform: translateY(-10px);
+      transition:
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s ease-in-out;
     }
 
     #menu-content.open {
       opacity: 1;
       visibility: visible;
+      /* アニメーション */
+      transform: translateY(0);
     }
 
     #close-menu-button {
@@ -200,9 +210,58 @@ import { SITE_TITLE } from '../consts'
     }
   }
 
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+  }
+
+  #overlay.open {
+    display: block;
+  }
+
   @media not (max-width: 720px) {
-    #close-menu-button {
+    #menu-button-container,
+    #close-menu-button,
+    #overlay.open {
       display: none;
     }
   }
 </style>
+
+<script>
+  const menuButton = document.getElementById('menu-button')
+  const menuContent = document.getElementById('menu-content')
+  const closeMenuButton = document.getElementById('close-menu-button')
+  const overlay = document.getElementById('overlay')
+
+  function openMenu() {
+    if (!menuContent || !overlay) return
+    menuContent.classList.add('open')
+    overlay.classList.add('open')
+  }
+
+  function closeMenu() {
+    if (!menuContent || !overlay) return
+    menuContent.classList.remove('open')
+    overlay.classList.remove('open')
+  }
+
+  if (menuButton && menuContent && closeMenuButton) {
+    menuButton.addEventListener('click', openMenu)
+    closeMenuButton.addEventListener('click', closeMenu)
+
+    document.addEventListener('click', (event) => {
+      // as Node は TypeScript の型アサーション
+      const target = event.target as Node
+      // クリックされた要素が menuContent か menuButton の子孫ではない場合は閉じる
+      if (!menuContent.contains(target) && !menuButton.contains(target)) closeMenu()
+    })
+  }
+</script>
