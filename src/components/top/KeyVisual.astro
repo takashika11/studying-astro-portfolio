@@ -1,6 +1,41 @@
 ---
 import { SITE_TITLE, JOB_TITLE } from '../../consts';
 ---
-<div class="key-visual">
-    <h1>{SITE_TITLE}</h1>
-</div>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1 class="">{SITE_TITLE}</h1>
+        <p class="">{JOB_TITLE}</p>
+    </div>
+</section>
+
+<style>
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: var(--gradient-bg);
+        color: var(--text-color);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        z-index: 2;
+        padding: 0 15px;
+    }
+</style>
