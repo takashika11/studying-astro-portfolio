@@ -4,8 +4,8 @@ import { SITE_TITLE, JOB_TITLE } from '../../consts';
 
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1 class="">{SITE_TITLE}</h1>
-        <p class="">{JOB_TITLE}</p>
+        <h1 class="animated-text gradient-text">{SITE_TITLE}</h1>
+        <p class="typewriter">{JOB_TITLE}</p>
     </div>
 </section>
 
@@ -37,5 +37,54 @@ import { SITE_TITLE, JOB_TITLE } from '../../consts';
         max-width: 800px;
         z-index: 2;
         padding: 0 15px;
+    }
+
+    .animated-text {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .typewriter {
+        font-size: 1.2rem;
+        overflow: hidden;
+        border-right: 0.15em solid var(--secondary-color);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 0.15rem;
+        animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+        from, 
+        to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: var(--secondary-color);
+        }
     }
 </style>
