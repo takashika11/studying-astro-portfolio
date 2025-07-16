@@ -1,0 +1,76 @@
+---
+type Props = {date: string, title: string }
+const { date, title } = Astro.props
+---
+
+
+
+<div class="timeline">
+			<div class="timeline-item">
+				<div class="timeline-date">{date}</div>
+				<div class="timeline-content">
+					<h4>{title}</h4>
+				<slot />
+				</div>
+			</div>
+		</div>
+
+		<style>
+			.timeline {
+				position: relative;
+				padding-left: 2rem;
+			}
+
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background-color: var(--primary-color);
+			}
+
+			.timeline-item {
+				margin-bottom: 2rem;
+				position: relative;
+			}
+
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -2.35rem;
+				top: 0.5rem;
+				width: 0.8rem;
+				height: 0.8rem;
+				background-color: var(--secondary-color);
+				border-radius: 50%;
+			}
+				
+			.timeline-date {
+				font-weight: bold;
+				color: var(--secondary-color);
+				margin-bottom: 0.5rem;
+			}
+
+			.timeline-content {
+				
+			}
+			h4 {
+			font-size: 1.4rem;
+			margin-bottom: 0.5rem;
+			}
+			
+		</style>
+
+		<style is:global>
+			.timeline-content p {
+				margin-bottom: 1rem;
+			}
+
+			.timeline-content ul {
+				margin-left: 1.5rem;
+				padding: 0;
+				list-style: disc;
+			}
+		</style>
