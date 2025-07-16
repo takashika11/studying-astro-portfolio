@@ -1,63 +1,99 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/Layout.astro';
+import Timeline from '../components/about/timeline.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, JOB_TITLE } from '../consts';
+
+
+const myName = '鹿肝 崇 - shikan takashi';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<Layout title={`About - ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+  <main class="page-container">
+    <h1 class="gradient-text page-title">About</h1>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+	<div class="profile">
+		<img src="/src/assets/blog-placeholder-about.jpg" alt={myName} class="profile-image" />
+	<div class="profile-info">
+		<h2>{myName}</h2>
+		<p class="job-title">{JOB_TITLE}</p>
+		</div>
+	</div>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+	<section class="introduction">
+		<h3>プロフィール</h3>
+		<p>1,986年9月12日生まれ、石川県珠洲市出身。</p>
+		<p>中小企業のサラリーマンとして働きながら,<a href="https://studying.jp/" target="_blank" rel="noopener">スタディング</a>でWeb開発を学んでいます。</p>
+		<p>このポートフォリオは、学習の成果を記録するために作成しました。</p>
+		<p>今後は、学んだことを活かして、Web開発やデザインのスキルを向上ささせていきたいと考えています。</p>
+	</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+	<section class="experience">
+		<h3>経歴</h3>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+		<Timeline date='2021年 - 現在' title='タイトル'>
+			<p>
+ より仕事の幅を広げるために、フリーランスエンジニアから法人化をする。
+ <br />
+ これまでの実績を活かし、幅広いサービスを提供している。
+			</p>
+ <ul>
+ <li>Web サイト・アプリケーション制作</li>
+ <li>DX コンサル（業務効率化・自動化）</li>
+ <li>データ分析と見える化（BI 構築）</li>
+ </ul>
+ <p>など</p>
+</Timeline>
+
+ <Timeline date='2020 - 2021年' title='フリーランスエンジニア'>
+ <p>
+ 大学卒業後、学生自体から従事していた塾や予備校の仕事を継続しつつ、そのままフリーランスエンジニアとして活動を始める。
+ </p>
+</Timeline>
+
+ <Timeline date='2016 - 2020年' title='慶應義塾大学 理工学部 数理科学科'>
+ <p>大学では統計学を専攻。サークルは茶道とパソコンを掛け持ち。</p>
+ </Timeline>
+
+  <Timeline date='2012 - 2015年' title='福島県立 安積高校'>
+ <p>吹奏楽部でトランペットに明け暮れる。</p>
+  </Timeline>
+	</section>
+  </main>
 </Layout>
+
+<style>
+	.profile {
+		display: flex;
+		align-items: center;
+		margin-bottom: 3rem;
+	}
+
+	.profile-image {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-right: 2rem;
+	}
+
+	.profile-info h2 {
+		font-size: 1.75rem;
+	}
+
+	.job-title {
+		font-size: 1.2rem;
+		color: var(--secondary-color);
+		margin-bottom: 0;
+	}
+
+	section {
+		margin-bottom: 3rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		color: var(--primary-color)	;
+	}
+
+	
+</style>
