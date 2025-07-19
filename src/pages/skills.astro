@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import SkillContainer from '../components/skills/SkillContainer.astro';
+---
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <main class="page-container">
+    <h1 class="graditent-text page-title">Skills</h1>
+
+    <p>
+      ここでは、私のスキルや技術スタックについて紹介します。私は主にフロントエンド開発を中心に活動しており、HTML、CSS、JavaScriptを使用してインタラクティブなウェブアプリケーションを構築しています。また、ReactやVue.jsなどのフレームワークも使用しています。
+    </p>
+
+    <SkillContainer />
+  </main>
+</Layout>
+
+<style>
+  p{
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+</style>

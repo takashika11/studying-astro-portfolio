@@ -1,0 +1,133 @@
+---
+const MAX_SCORE = 5
+
+function calcPercentage(score: number) {
+  return (score / MAX_SCORE) * 100
+}
+
+// 経験値をマッピング
+const experienceLevels = {
+  1: '1 年未満',
+  2: '1 〜 2 年',
+  3: '2 〜 3 年',
+  4: '3 〜 5 年',
+  5: '5 年以上',
+}
+
+// 習熟度をマッピング
+const levelLevels = {
+  1: '入門',
+  2: '基本',
+  3: '応用',
+  4: '実践',
+  5: '熟練',
+}
+
+// 関心度をマッピング
+const interestLevels = {
+  1: '関心なし',
+  2: 'あまり関心なし',
+  3: '普通',
+  4: '好き',
+  5: '大好き',
+}
+
+type Props = {
+  name: string
+  icon: string
+  description: string
+  experience: number
+  level: number
+  interest: number
+}
+
+const { name, icon, description, experience, level, interest } = Astro.props
+---
+
+<div class='skill-card'>
+  <div class='skill-card-header'>
+    <div class='skill-icon'></div>
+    <h3 class='skill-name'>{name}</h3>
+  </div>
+
+  <div class='skill-content'>
+    <p class='skill-description'>{description}</p>
+
+    <span class='bar-caption'>経験値 : {experienceLevels[experience]}</span>
+    <div class='bar-container'>
+      <div class='bar green' style={`width: ${calcPercentage(experience)}%`}></div>
+    </div>
+
+    <span class='bar-caption'>習熟度 : {levelLevels[level]}</span>
+    <div class='bar-container'>
+      <div class='bar blue' style={`width: ${calcPercentage(level)}%`}></div>
+    </div>
+
+    <span class='bar-caption'>関心度 : {interestLevels[interest]}</span>
+    <div class='bar-container'>
+      <div class='bar yellow' style={`width: ${calcPercentage(interest)}%`}></div>
+    </div>
+  </div>
+</div>
+
+<style>
+	.skill-card {
+		background-color: var(--card-bg-color);
+		border-radius: 8px;
+		padding: 1.5rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.skill-icon {
+		height: 40px;
+	}
+
+	.skill-card-header {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.skill-name {
+		font-size: 1.2rem;
+		margin: 0;
+		color: var(--text-color);
+	}
+
+	.skill-description {
+		font-size: 0.9rem;
+		color: var(--text-color);
+		margin-bottom: 1rem;
+	}
+
+	.bar-container {
+		background-color: #e0e0e0;
+		border-radius: 4px;
+		height: 8px;
+		overflow: hidden;
+		margin-bottom: 0.5rem;
+	}
+
+	.bar {
+		height: 100%;
+		border-radius: 4px;
+		transition: width 0.5s ease-in-out;
+	}
+
+	.bar.green {
+		background-color: #4caf50;
+	}
+
+	.bar.blue {
+		background-color: #2196f3;
+	}
+
+	.bar.yellow {
+		background-color: #ffeb3b;
+	}
+
+	.bar-caption {
+		font-size: 0.8rem;
+		color: var(--caption-color);
+	}
+</style>
