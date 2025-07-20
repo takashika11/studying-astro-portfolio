@@ -1,4 +1,12 @@
 ---
+// astro-icon を使ってアイコンを表示する
+// https://github.com/natemoo-re/astro-icon
+
+//アイコンはここから探す
+//https://icon-sets.iconify.design/skill-icons/?category=Programming
+
+import { Icon } from 'astro-icon/components'
+
 const MAX_SCORE = 5
 
 function calcPercentage(score: number) {
@@ -47,6 +55,7 @@ const { name, icon, description, experience, level, interest } = Astro.props
 <div class='skill-card'>
   <div class='skill-card-header'>
     <div class='skill-icon'></div>
+	<Icon name={icon} width={40} height={40} />
     <h3 class='skill-name'>{name}</h3>
   </div>
 
