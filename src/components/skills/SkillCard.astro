@@ -54,10 +54,12 @@ const { name, icon, description, experience, level, interest } = Astro.props
 
 <div class='skill-card'>
   <div class='skill-card-header'>
-    <div class='skill-icon'></div>
-	<Icon name={icon} width={40} height={40} />
+    <div class='skill-icon'>
+      <Icon name={icon} width={40} height={40} />
+	</div>
     <h3 class='skill-name'>{name}</h3>
   </div>
+  
 
   <div class='skill-content'>
     <p class='skill-description'>{description}</p>
@@ -81,62 +83,62 @@ const { name, icon, description, experience, level, interest } = Astro.props
 
 <style>
 	.skill-card {
-		background-color: var(--card-bg-color);
-		border-radius: 8px;
-		padding: 1.5rem;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	}
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-	.skill-icon {
-		height: 40px;
-	}
+  .skill-icon {
+    height: 40px;
+  }
 
-	.skill-card-header {
-		display: flex;
-		gap: 1.5rem;
-		align-items: center;
-	}
+  .skill-card-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
 
-	.skill-name {
-		font-size: 1.2rem;
-		margin: 0;
-		color: var(--text-color);
-	}
+  .skill-name {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
+  }
 
-	.skill-description {
-		font-size: 0.9rem;
-		color: var(--text-color);
-		margin-bottom: 1rem;
-	}
+  .skill-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
 
 	.bar-container {
-		background-color: #e0e0e0;
-		border-radius: 4px;
-		height: 8px;
-		overflow: hidden;
-		margin-bottom: 0.5rem;
-	}
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
 
-	.bar {
-		height: 100%;
-		border-radius: 4px;
-		transition: width 0.5s ease-in-out;
-	}
+  .bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+  }
 
-	.bar.green {
-		background-color: #4caf50;
-	}
+  .bar.green {
+    background-color: #4caf50;
+  }
 
-	.bar.blue {
-		background-color: #2196f3;
-	}
+  .bar.blue {
+    background-color: #2196f3;
+  }
 
-	.bar.yellow {
-		background-color: #ffeb3b;
-	}
+  .bar.yellow {
+    background-color: #ffeb3b;
+  }
 
-	.bar-caption {
-		font-size: 0.8rem;
-		color: var(--caption-color);
-	}
+  .bar-caption {
+    font-size: 0.8rem;
+    color: var(--caption-color);
+  }
 </style>

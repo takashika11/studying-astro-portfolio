@@ -1,9 +1,161 @@
 ---
-import SkillCard from './SkillCard.astro';
+import SkillCard from './SkillCard.astro'
+
+const skillCateogries = [
+  {
+		 name: 'フロントエンド',
+    skills: [
+      {
+        name: 'HTML',
+        icon: 'skill-icons:html',
+        description: 'セマンティックなマークアップとアクセシビリティを重視した実装も得意です',
+        experience: 5,
+        level: 5,
+        interest: 3,
+      },
+      {
+        name: 'CSS',
+        icon: 'skill-icons:css',
+        description: 'Flexbox, Grid などのデザインを重視した実装も得意です',
+        experience: 5,
+        level: 5,
+        interest: 3,
+      },
+      {
+        name: 'JavaScript',
+        icon: 'skill-icons:javascript',
+        description: 'ES6+ の構文を使用した実装も得意です',
+        experience: 5,
+        level: 4,
+        interest: 4,
+      },
+      {
+        name: 'Astro',
+        icon: 'skill-icons:astro',
+        description: 'Astro を使用した実装も得意です',
+        experience: 2,
+        level: 3,
+        interest: 5,
+      },
+    ],
+  },
+  {
+		name: 'バックエンド',
+    skills: [
+      {
+        name: 'Node.js',
+        icon: 'skill-icons:nodejs-dark',
+        description: 'ツールの作成やアプリの開発に使っています',
+        experience: 4,
+        level: 3,
+        interest: 3,
+      },
+      {
+        name: 'Express',
+        icon: 'skill-icons:expressjs-dark',
+        description: 'Node.js を使って API を開発するのに使っています',
+        experience: 2,
+        level: 2,
+        interest: 3,
+      },
+    ],
+  },
+  {
+    name: 'データベース',
+    skills: [
+      {
+        name: 'PostgreSQL',
+        icon: 'skill-icons:postgresql-dark',
+        description: 'RDB を使う際に選んでいます',
+        experience: 4,
+        level: 3,
+        interest: 3,
+      },
+      {
+        name: 'MongoDB',
+        icon: 'skill-icons:mongodb',
+        description: 'NoSQL を使う際に選んでいます',
+        experience: 3,
+        level: 3,
+        interest: 3,
+      },
+    ],
+  },
+  {
+		name: 'DevOps・インフラ',
+		skills: [
+			{
+				name: 'Google Cloud',
+				icon: 'skill-icons:gcp-dark',
+				description: 'Cloud Functionsでのバッジ処理や Cloud Runでのアプリの公開につかっています。',
+				experience: 4,
+				level: 2,
+				interest: 5,
+			},
+			{
+				name: 'GitHub',
+				icon: 'skill-icons:github-dark',
+				description: 'ソースコードの管理に使っています。自動化のために GitHub Actions も使っています',
+				experience: 5,
+				level: 3,
+				interest: 5,
+			},
+			{
+				name: 'Docker',
+				icon: 'skill-icons:docker',
+				description: 'サーバーサイドのアプリを Cloud Run にデプロイする際に使っています。',
+				experience: 4,
+				level: 3,
+				interest: 3,
+			},
+		],
+	},
+]
 ---
 
-<div class="skill-card">
-	<SkillCard name='HTML' icon='skill-icons:html' description='HTML' experience={3} level={4} interest={5} />
+<div class='skill-container'>
+  {
+    skillCateogries.map((category) => (
+      <section class='skill-category'>
+        <h2 class='category-title'>{category.name}</h2>
+        <div class='skill-grid'>
+          {category.skills.map((skill, index) => (
+            <div class='skill-card-wrapper' style={`--animation-order: ${index}`}>
+              <SkillCard {...skill} />
+            </div>
+          ))}
+        </div>
+      </section>
+    ))
+  }
 </div>
 
+<style>
+  .skill-container {
+    display: grid;
+    gap: 2rem;
+  }
 
+  .skill-category {
+    background: var(--gradient-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .categoty-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .skill-card-wapper {
+
+  }
+  </style>
