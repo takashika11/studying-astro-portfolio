@@ -6,7 +6,7 @@ import { SITE_TITLE } from '../consts'
 <header>
   <nav>
     <h2>
-      <a href='/'>{SITE_TITLE}</a>
+      <a href={`${import.meta.env.BASE_URL}/`}>{SITE_TITLE}</a>
     </h2>
 
     <div id='menu-content'>
@@ -22,19 +22,19 @@ import { SITE_TITLE } from '../consts'
 
       <ul class='internal-links'>
         <li>
-          <HeaderLink href='/'>Home</HeaderLink>
+          <HeaderLink href={`${import.meta.env.BASE_URL}/`}>Home</HeaderLink>
         </li>
         <li>
-          <HeaderLink href='/about'>About</HeaderLink>
+          <HeaderLink href={`${import.meta.env.BASE_URL}/about`}>About</HeaderLink>
         </li>
         <li>
-          <HeaderLink href='/skills'>Skills</HeaderLink>
+          <HeaderLink href={`${import.meta.env.BASE_URL}/skills`}>Skills</HeaderLink>
         </li>
         <li>
-          <HeaderLink href='/blog'>Blog</HeaderLink>
+          <HeaderLink href={`${import.meta.env.BASE_URL}/blog`}>Blog</HeaderLink>
         </li>
         <li>
-          <HeaderLink href='/contact'>Contact</HeaderLink>
+          <HeaderLink href={`${import.meta.env.BASE_URL}/contact`}>Contact</HeaderLink>
         </li>
       </ul>
 

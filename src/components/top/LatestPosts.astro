@@ -10,7 +10,7 @@ const latestPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     <h2>Latest Posts</h2>
     <div class="posts-grid">
       {latestPosts.map((post) => (
-        <a href={`/blog/${post.slug}`} class="post-card">
+        <a href={`${import.meta.env.BASE_URL}/blog/${post.slug}/`} class="post-card">
           <div class="card-content">
             <h3>{post.data.title}</h3>
             <p class="post-date">{post.data.pubDate.toLocaleDateString()}</p>
@@ -20,7 +20,7 @@ const latestPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     </div>
 
     <div class="cta-container">
-      <a href="/contact" class="cta-button">Contact Me</a>
+      <a href={`${import.meta.env.BASE_URL}/contact`} class="cta-button">Contact Me</a>
     </div>
 
   </div>

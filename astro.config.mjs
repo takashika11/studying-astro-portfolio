@@ -8,5 +8,6 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://takashika11.github.io',
+    base: '/studying-astro-portfolio',
     integrations: [mdx(), sitemap(), icon()],
 });
