@@ -16,6 +16,12 @@ console.log(posts);
   <main class="page-container">
     <h1 class="graditent-text page-title">Blog</h1>
 
+    <p class="blog-description">
+    このブログでは、私が興味を持っている事や、
+    制作物の裏側、技術的な挑戦について発信していこうと考えています。
+  </p>
+
+
     <section>
       <ul>
         {posts.map(post => (
@@ -37,7 +43,14 @@ console.log(posts);
 </Layout>
 
 <style>
-  ul {
+ .blog-description {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+ul {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -70,12 +83,18 @@ console.log(posts);
   }
 
   ul li img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-  }
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 16/9; /* 画像の縦横比を16:9に統一 */
+  object-fit: cover; /* 縦横比に合わせて画像を切り抜き、スペースに合わせる */
+}
 
   ul li a {
     display: block;
+    /* transitionプロパティを追加して、変形を滑らかにする */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 12px; /* 角を丸くする */
   }
 
   .title {
@@ -94,10 +113,16 @@ console.log(posts);
     color: rgb(var(--accent));
   }
 
-  ul a:hover img {
-    box-shadow: var(--box-shadow);
-  }
+  ul li a:hover {
+  transform: translateY(-5px); /* 全体を少し上に動かす */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 影を加えて浮いているように見せる */
+}
 
+ul a:hover img {
+  /* imgの拡大は不要。親要素が動くため、imgも一緒に動きます */
+  box-shadow: none;
+  transform: none;
+}
   @media (max-width: 720px) {
     ul {
       gap: 0.5em;
@@ -116,4 +141,6 @@ console.log(posts);
       font-size: 1.563em;
     }
   }
+
+  
 </style>

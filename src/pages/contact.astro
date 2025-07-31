@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Form from '../components/contact/Form.astro';
+
+const pageTitle = 'お問い合わせ';
+const pageDescription = 'ご質問やご相談など、お気軽にお問い合わせください。';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <main class="page-container">
+    <h1 class="gradient-text page-title">{pageTitle}</h1>
+    <p class="description">{pageDescription}</p>
+    <Form />
+  </main>
+</Layout>
+
+<style>
+  .description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+</style>

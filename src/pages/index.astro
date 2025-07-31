@@ -2,11 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import KeyVisual from '../components/top/KeyVisual.astro';
+import AboutSection from '../components/top/AboutSection.astro'; // 追加
+import LatestPosts from '../components/top/LatestPosts.astro'; // 追加
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <KeyVisual />
   <main>
-    独自にコンテンツを作成してみる
+    <AboutSection />
+    <LatestPosts />
   </main>
 </Layout>

@@ -4,7 +4,7 @@ import Timeline from '../components/about/timeline.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, JOB_TITLE } from '../consts';
 
 
-const myName = '鹿肝 崇 - shikan takashi';
+const myName = 'Takashi.shika';
 ---
 
 <Layout title={`About - ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
@@ -12,7 +12,7 @@ const myName = '鹿肝 崇 - shikan takashi';
     <h1 class="gradient-text page-title">About</h1>
 
 	<div class="profile">
-		<img src="/src/assets/blog-placeholder-about.jpg" alt={myName} class="profile-image" />
+		<img src="/src/assets/logo.png" alt={myName} class="profile-image" />
 	<div class="profile-info">
 		<h2>{myName}</h2>
 		<p class="job-title">{JOB_TITLE}</p>
@@ -20,8 +20,8 @@ const myName = '鹿肝 崇 - shikan takashi';
 	</div>
 
 	<section class="introduction">
-		<h3>プロフィール</h3>
-		<p>1,986年9月12日生まれ、石川県珠洲市出身。</p>
+		<h3>Profile</h3>
+		<p>1986年9月12日生まれ、石川県出身</p>
 		<p>中小企業のサラリーマンとして働きながら,<a href="https://studying.jp/" target="_blank" rel="noopener">スタディング</a>でWeb開発を学んでいます。</p>
 		<p>このポートフォリオは、学習の成果を記録するために作成しました。</p>
 		<p>今後は、学んだことを活かして、Web開発やデザインのスキルを向上ささせていきたいと考えています。</p>
@@ -30,32 +30,46 @@ const myName = '鹿肝 崇 - shikan takashi';
 	<section class="experience">
 		<h3>経歴</h3>
 
-		<Timeline date='2021年 - 現在' title='タイトル'>
+		<Timeline date='2022年 - 現在' title='商社の経理に就職'>
 			<p>
- より仕事の幅を広げるために、フリーランスエンジニアから法人化をする。
+ コロナの影響で飲食店を閉店し、個人事業時に経験した経理
  <br />
- これまでの実績を活かし、幅広いサービスを提供している。
+ の経験を活かし商社の経理に転職
 			</p>
  <ul>
- <li>Web サイト・アプリケーション制作</li>
- <li>DX コンサル（業務効率化・自動化）</li>
- <li>データ分析と見える化（BI 構築）</li>
+ <li>帳簿管理・労務管理</li>
+ <li>決算業務</li>
+ <li>ECサイトの管理</li>
  </ul>
  <p>など</p>
 </Timeline>
 
- <Timeline date='2020 - 2021年' title='フリーランスエンジニア'>
+<Timeline date='2012 - 2022年' title='独立し、個人で飲食店を開業'>
  <p>
- 大学卒業後、学生自体から従事していた塾や予備校の仕事を継続しつつ、そのままフリーランスエンジニアとして活動を始める。
+ 飲食店長を数年経験後、独立し個人で飲食店(洋食酒場)を開業。
  </p>
 </Timeline>
 
- <Timeline date='2016 - 2020年' title='慶應義塾大学 理工学部 数理科学科'>
- <p>大学では統計学を専攻。サークルは茶道とパソコンを掛け持ち。</p>
+<Timeline date='2009 - 2012年' title='飲食店に転職'>
+ <p>
+ スポーツジムのお客様に誘われて、飲食店に転職。
+ <br />
+ 居酒屋の店長として勤務。
+ </p>
+</Timeline>
+
+ <Timeline date='2007 - 2009年' title='愛知県のスポーツジム'>
+ <p>
+ 専門学校卒業後、愛知県のスポーツジムでパーソナルトレーナーとして勤務。
+ </p>
+</Timeline>
+
+ <Timeline date='2005 - 2007年' title='愛知県のスポーツ系の専門学校'>
+ <p>専門学校では、スポーツトレーナーになる資格を取得。パーソナルトレーナーを目指す。</p>
  </Timeline>
 
-  <Timeline date='2012 - 2015年' title='福島県立 安積高校'>
- <p>吹奏楽部でトランペットに明け暮れる。</p>
+  <Timeline date='2002 - 2005年' title='石川県の普通科の高校'>
+ <p>陸上部に所属し部活と遊びにあけくれる。</p>
   </Timeline>
 	</section>
   </main>
@@ -108,5 +122,22 @@ const myName = '鹿肝 崇 - shikan takashi';
 			margin-bottom: 1.5rem;
 		}
 	}
+
+	.profile-image {
+    transition: transform 0.3s ease; /* アニメーションを滑らかにする */
+}
+
+.profile-image:hover {
+    transform: rotate(15deg) scale(1.1); /* ホバー時に15度回転して1.1倍に拡大 */
+}
+
+/* セクションのライトアップ効果 */
+section {
+    transition: box-shadow 0.3s ease; /* アニメーションを滑らかにする */
+}
+
+section:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* ホバー時に明るい影を追加 */
+}
 </style>
 

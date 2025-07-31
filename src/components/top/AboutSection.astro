@@ -1,0 +1,63 @@
+<section class="about-section">
+  <div class="content">
+    <h2>About Me</h2>
+    <p>
+      この度は当ブログにお越しいただき、ありがとうございます。<br />
+      私はウェブ開発者として、日々新しい技術を学びながら、アウトプットを続けています。
+      このブログでは、私の学習したことや、日々のインスピレーションを共有していきます。
+    </p>
+    <a href="/about" class="cta-button">もっと詳しく</a>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 80px 20px;
+    background: var(--gradient-bg-light); /* 明るめのグラデーションなど、サイトに合わせて調整 */
+    text-align: center;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-color);
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: var(--primary-color);
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+  }
+</style>

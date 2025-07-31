@@ -1,0 +1,163 @@
+<form class="contact-form" id="contact-form" novalidate>
+  <div class="form-group">
+    <label for="name">お名前</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      maxlength="50"
+      title="お名前は50文字以内で入力してください"
+    />
+    <p class="error-message" id="name-error" aria-live="polite">このフィールドは必須です。</p>
+  </div>
+
+  <div class="form-group">
+    <label for="email">メールアドレス</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      aria-describedby="email-error"
+    />
+    <p class="error-message" id="email-error" aria-live="polite">有効なメールアドレスを入力してください。</p>
+  </div>
+
+  <div class="form-group">
+    <label for="message">お問合せ内容</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="submit-button">送信</button>
+</form>
+
+<style>
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  /* 入力欄にエラーがあった場合のスタイル */
+  .form-group input.error,
+  .form-group textarea.error {
+    border-color: #e53e3e; /* 赤色 */
+  }
+
+  /* エラーメッセージのスタイル */
+  .error-message {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none; /* デフォルトで非表示 */
+  }
+
+  /* JavaScriptで.visibleクラスが追加されたら表示 */
+  .error-message.visible {
+    display: block;
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .submit-button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const nameInput = document.getElementById('name');
+  const nameError = document.getElementById('name-error');
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('email-error');
+
+  const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+  function validateEmail() {
+    const isValid = emailInput.value && emailPattern.test(emailInput.value);
+    if (!isValid) {
+      emailInput.classList.add('error');
+      emailError.classList.add('visible');
+    } else {
+      emailInput.classList.remove('error');
+      emailError.classList.remove('visible');
+    }
+    return isValid;
+  }
+
+  function validateName() {
+    const isValid = nameInput.value;
+    if (!isValid) {
+      nameInput.classList.add('error');
+      nameError.classList.add('visible');
+    } else {
+      nameInput.classList.remove('error');
+      nameError.classList.remove('visible');
+    }
+    return isValid;
+  }
+
+  form.addEventListener('submit', (e) => {
+    // フォーム送信時にHTMLのデフォルトバリデーションを無効にする
+    e.preventDefault();
+
+    // 全てのバリデーション関数を実行
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+
+    // 全てのフィールドが有効な場合のみフォームを送信
+    if (isNameValid && isEmailValid) {
+      form.submit();
+    }
+  });
+
+  // リアルタイムでバリデーション
+  nameInput.addEventListener('input', validateName);
+  emailInput.addEventListener('input', validateEmail);
+</script>
