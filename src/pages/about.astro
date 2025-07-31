@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Timeline from '../components/about/timeline.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, JOB_TITLE } from '../consts';
-
+import myLogo from '../assets/logo.png'; // 画像をインポート
 
 const myName = 'Takashi.shika';
 ---
@@ -12,7 +12,7 @@ const myName = 'Takashi.shika';
     <h1 class="gradient-text page-title">About</h1>
 
 	<div class="profile">
-		<img src={`${import.meta.env.BASE_URL}/src/assets/logo.png`} alt={myName} class="profile-image" />
+		<img src={myLogo.src} alt={myName} class="profile-image" />
 	<div class="profile-info">
 		<h2>{myName}</h2>
 		<p class="job-title">{JOB_TITLE}</p>
